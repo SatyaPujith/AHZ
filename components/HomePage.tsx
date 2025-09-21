@@ -75,7 +75,6 @@ export default function HomePage() {
     const event = new CustomEvent('startElevenLabsVoice')
     window.dispatchEvent(event)
     toast.success('Opening voice therapy session...')
-    
     // Debug: Also log to console
     console.log('Event dispatched: startElevenLabsVoice')
   }
@@ -202,7 +201,7 @@ export default function HomePage() {
 
         {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-slate-700/50 overflow-hidden">
+          <div className="mt-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200/50 dark:border-slate-700/50 overflow-hidden">
             <div className="p-4 space-y-2">
               <button
                 onClick={() => {
@@ -495,8 +494,6 @@ export default function HomePage() {
             </div>
           </div>
 
-
-
           {/* Wellness Journey */}
           <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 text-white shadow-lg">
             <div className="flex flex-col lg:flex-row items-center justify-between">
@@ -520,35 +517,6 @@ export default function HomePage() {
           </div>
         </div>
       </main>
-
-      {/* Debug Panel */}
-      <div className="fixed top-20 right-4 bg-white dark:bg-slate-800 p-4 rounded-lg shadow-lg border z-50">
-        <h4 className="text-sm font-bold mb-2">Debug Panel</h4>
-        <div className="space-y-2">
-          <button
-            onClick={() => {
-              console.log('Debug: Testing ElevenLabs')
-              const event = new CustomEvent('startElevenLabsVoice')
-              window.dispatchEvent(event)
-              toast.info('ElevenLabs event sent')
-            }}
-            className="w-full bg-emerald-500 text-white px-3 py-1 rounded text-xs"
-          >
-            Test ElevenLabs
-          </button>
-          <button
-            onClick={() => {
-              console.log('Debug: Testing Tavus')
-              const event = new CustomEvent('openTavusWidget')
-              window.dispatchEvent(event)
-              toast.info('Tavus event sent')
-            }}
-            className="w-full bg-indigo-500 text-white px-3 py-1 rounded text-xs"
-          >
-            Test Tavus
-          </button>
-        </div>
-      </div>
 
       {/* AI Assistants */}
       <TavusWidget />
